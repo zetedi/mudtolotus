@@ -20,7 +20,7 @@ const outlineButton =
 export function RetreatPage({ lang }: { lang: Lang }) {
   const t = copy[lang]
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-clip">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:font-label focus:uppercase focus:tracking-[0.15em] focus:text-cream"
@@ -133,7 +133,7 @@ function Hero({ t }: Props) {
         <span>{t.hero.eyebrowRight}</span>
       </p>
 
-      <div className="relative flex flex-col items-center">
+      <div className="parallax-float relative flex flex-col items-center">
         <h1 className="animate-rise [animation-delay:150ms]">
           <span className="sr-only">From Mud to Lotus</span>
           <img

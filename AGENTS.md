@@ -14,7 +14,7 @@ One-page marketing site for the "From Mud to Lotus" eco building & art residency
 - `src/data/images.ts` — image variant manifest and the `img()` helper. `assets/img/` holds originals (normalised by `scripts/shrink-assets.mjs`, `pnpm assets`); `public/img/` is generated (gitignored) by `scripts/images.mjs`.
 - `scripts/og.mjs` + `scripts/og.html` — renders the share card with headless Chrome into `assets/img/share-preview.jpg`.
 - `firebase.json`, `.firebaserc`, `firestore.rules` — hosting (clean URLs, cache/security headers, `/pricing` → `/#prices` redirect) and Firestore rules (create-only, validated registrations).
-- `src/styles.css` — theme tokens (`terra`, `lotus`, `sand`, `cream`, `ink`; `font-display`, `font-body`, `font-label`), mud-wall background, animations, focus ring, Arabic font overrides.
+- `src/styles.css` — theme tokens (`terra`, `lotus`, `sand`, `cream`, `ink`; `font-display`, `font-body`, `font-label`), mud-wall background with CSS scroll-driven parallax (`.mud-bg::before`, `.parallax-float`; static fallback without `animation-timeline` support or with reduced motion), animations, focus ring, Arabic font overrides.
 
 ## Conventions / decisions
 

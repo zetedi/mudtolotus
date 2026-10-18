@@ -31,11 +31,61 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/*
+ * Mud-wall sections. The wall lives on a pseudo-element so it can drift slower than the page
+ * (parallax) using CSS scroll-driven animations. Browsers without them, and people who prefer
+ * reduced motion, simply get the static wall.
+ */
 .mud-bg {
+  position: relative;
+  isolation: isolate;
+  /* clip, not hidden: `hidden` would make the section a scroll container and break view timelines */
+  overflow: clip;
+}
+
+.mud-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   /* Rendered by scripts/images.mjs from the manifest in src/data/images.ts. */
-  background-image: url('/img/mud-wall-1400.webp');
-  background-size: cover;
-  background-position: center top;
+  background: url('/img/mud-wall-1400.webp') center top / cover no-repeat;
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .mud-bg {
+      view-timeline: --wall block;
+    }
+
+    .mud-bg::before {
+      inset: -20% 0;
+      animation: parallax-wall linear both;
+      animation-timeline: --wall;
+    }
+
+    /* Hero artwork rises a little faster than the page while the first screen scrolls away. */
+    .parallax-float {
+      animation: parallax-float linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 100vh;
+    }
+  }
+}
+
+@keyframes parallax-wall {
+  from {
+    transform: translateY(-14%);
+  }
+  to {
+    transform: translateY(14%);
+  }
+}
+
+@keyframes parallax-float {
+  to {
+    transform: translateY(-90px);
+  }
 }
 
 @keyframes rise {
