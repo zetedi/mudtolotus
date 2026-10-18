@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mudtolotus.web.app/sitemap.xml

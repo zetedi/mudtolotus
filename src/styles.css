@@ -1,0 +1,99 @@
+@import "tailwindcss" source("../");
+
+@theme {
+  /* Slightly deeper than the brochure inks so text passes WCAG AA on sand and cream. */
+  --color-terra: #93472f;
+  --color-lotus: #7062e0;
+  --color-sand: #ecd3b1;
+  --color-cream: #f7ead6;
+  --color-ink: #4f2a1f;
+  --font-display: 'Bodoni Moda', 'Playfair Display', Georgia, serif;
+  --font-body: 'Cutive', 'Courier Prime', Georgia, serif;
+  --font-label: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* One consistent, high-contrast focus ring for keyboard users. */
+:focus-visible {
+  outline: 3px solid var(--color-lotus);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--color-cream);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background-color: var(--color-sand);
+  -webkit-font-smoothing: antialiased;
+}
+
+.mud-bg {
+  /* Rendered by scripts/images.mjs from the manifest in src/data/images.ts. */
+  background-image: url('/img/mud-wall-1400.webp');
+  background-size: cover;
+  background-position: center top;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-1.5deg) translateY(0);
+  }
+  50% {
+    transform: rotate(1.5deg) translateY(-6px);
+  }
+}
+
+.animate-rise {
+  animation: rise 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.animate-sway {
+  animation: sway 7s ease-in-out infinite;
+  transform-origin: 50% 85%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-rise,
+  .animate-sway {
+    animation: none;
+  }
+}
+
+/* Arabic keeps the earthy palette with connected, comfortably spaced lettering. */
+[lang="ar"] {
+  --font-display: 'Noto Naskh Arabic', Georgia, serif;
+  --font-body: 'Noto Naskh Arabic', Georgia, serif;
+  --font-label: 'Noto Naskh Arabic', Georgia, serif;
+}
+
+[lang="ar"],
+[lang="ar"] * {
+  letter-spacing: normal;
+}
+
+[lang="ar"] .italic {
+  font-style: normal;
+}
+
+[lang="ar"] input[dir="ltr"] {
+  text-align: start;
+}

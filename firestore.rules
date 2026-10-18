@@ -1,0 +1,28 @@
+rules_version = '2';
+
+// The public site writes registration requests straight into Firestore (see src/lib/registrations.ts).
+// Visitors may only create well-formed documents; reading them requires the Firebase console.
+service cloud.firestore {
+  function text(value, min, max) {
+    return value is string && value.size() >= min && value.size() <= max;
+  }
+
+  function validRegistration(d) {
+    return d.keys().hasOnly(['name', 'email', 'phone', 'country', 'motivation', 'language', 'submittedAt'])
+      && d.keys().hasAll(['name', 'email', 'country', 'motivation', 'language', 'submittedAt'])
+      && text(d.name, 1, 100)
+      && text(d.email, 3, 254) && d.email.matches('.+@.+\\..+')
+      && (!('phone' in d) || text(d.phone, 1, 40))
+      && text(d.country, 1, 80)
+      && text(d.motivation, 1, 2000)
+      && d.language in ['en', 'fr', 'ar']
+      && d.submittedAt == request.time;
+  }
+
+  match /databases/{database}/documents {
+    match /registrations/{id} {
+      allow create: if validRegistration(request.resource.data);
+      allow read, update, delete: if false;
+    }
+  }
+}

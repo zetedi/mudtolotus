@@ -1,0 +1,82 @@
+<!doctype html>
+<!-- Source of the Open Graph card. Rendered to assets/img/share-preview.jpg by scripts/og.mjs. -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,400;1,500&display=block"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+      }
+      body {
+        position: relative;
+        background: #ecd3b1 url('../assets/img/mud-wall.jpg') center 30% / cover no-repeat;
+        font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+        color: #93472f;
+      }
+      .veil {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(247, 234, 214, 0.45), rgba(236, 211, 177, 0.2));
+      }
+      .card {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        justify-items: center;
+        padding: 40px 60px 60px;
+        text-align: center;
+      }
+      .eyebrow,
+      .dates {
+        display: flex;
+        gap: 44px;
+        font-style: italic;
+        text-transform: uppercase;
+      }
+      .eyebrow {
+        font-size: 27px;
+        letter-spacing: 0.22em;
+      }
+      .middle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+      .title {
+        width: 500px;
+      }
+      .emblem {
+        width: 140px;
+        filter: drop-shadow(0 14px 24px rgba(79, 42, 31, 0.25));
+      }
+      .dates {
+        font-size: 44px;
+        letter-spacing: 0.14em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="veil"></div>
+    <div class="card">
+      <p class="eyebrow"><span>Eco building</span><span>Art residency</span></p>
+      <div class="middle">
+        <img class="title" src="../assets/img/title.png" alt="From Mud to Lotus" />
+        <img class="emblem" src="../assets/img/lotus-emblem.png" alt="" />
+      </div>
+      <p class="dates"><span>Aswan, Egypt</span><span>8–16 March 2027</span></p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+# Native modules that are allowed to run their install scripts.
+onlyBuiltDependencies:
+  - esbuild
+  - sharp

@@ -1,0 +1,34 @@
+{
+  "name": "from-mud-to-lotus",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev --port 3000",
+    "predev": "node scripts/images.mjs",
+    "images": "node scripts/images.mjs",
+    "og": "node scripts/og.mjs",
+    "prebuild": "node scripts/images.mjs",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test \"src/**/*.test.ts\"",
+    "preview": "firebase emulators:start --only hosting",
+    "deploy": "pnpm build && firebase deploy --only hosting"
+  },
+  "dependencies": {
+    "@tanstack/react-router": "1.170.44",
+    "@tanstack/react-start": "1.169.1",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.2.2",
+    "@types/node": "22.20.5",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.5",
+    "@vitejs/plugin-react": "6.1.2",
+    "sharp": "0.34.5",
+    "tailwindcss": "4.2.2",
+    "typescript": "5.9.3",
+    "vite": "8.3.4"
+  }
+}
