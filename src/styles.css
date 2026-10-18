@@ -64,6 +64,14 @@ body {
       animation-timeline: --wall;
     }
 
+    /* The hero sits at the top of the page: keep the wall anchored exactly as it loads
+       (the pot in the top-right corner stays in frame) and only start lagging on scroll. */
+    .mud-bg-hero::before {
+      inset: 0 0 -30%;
+      animation-name: parallax-wall-hero;
+      animation-range: exit;
+    }
+
     /* Hero artwork rises a little faster than the page while the first screen scrolls away. */
     .parallax-float {
       animation: parallax-float linear both;
@@ -77,6 +85,12 @@ body {
   from {
     transform: translateY(-14%);
   }
+  to {
+    transform: translateY(14%);
+  }
+}
+
+@keyframes parallax-wall-hero {
   to {
     transform: translateY(14%);
   }

@@ -125,7 +125,7 @@ function Hero({ t }: Props) {
   return (
     <section
       id="top"
-      className="mud-bg relative flex min-h-svh flex-col items-center justify-between px-5 pt-24 pb-10 text-center"
+      className="mud-bg mud-bg-hero relative flex min-h-svh flex-col items-center justify-between px-5 pt-24 pb-10 text-center"
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-sand/95 via-sand/55 to-transparent" />
       <p className="animate-rise relative flex w-full max-w-2xl justify-between font-label text-base uppercase italic tracking-[0.18em] text-terra sm:text-2xl">
