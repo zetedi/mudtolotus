@@ -50,7 +50,8 @@ function RootDocument({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
-        <Scripts />
+        {/* The 404 page is plain HTML: nothing to hydrate, so no scripts. */}
+        {pathname !== '/404' && <Scripts />}
       </body>
     </html>
   )

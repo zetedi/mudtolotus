@@ -59,7 +59,6 @@ export function RegistrationForm({ t, lang }: { t: Copy['form']; lang: Lang }) {
 
   return (
     <form
-      method="POST"
       onSubmit={submit}
       onChange={() => {
         if (state === 'error') setState('idle')

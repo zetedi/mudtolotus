@@ -6,6 +6,7 @@
     "dev": "vite dev --port 3000",
     "predev": "node scripts/images.mjs",
     "images": "node scripts/images.mjs",
+    "assets": "node scripts/shrink-assets.mjs",
     "og": "node scripts/og.mjs",
     "prebuild": "node scripts/images.mjs",
     "build": "vite build",

@@ -8,7 +8,7 @@
 
 export type ImagePosition = 'center' | 'top' | 'bottom'
 /** `quality` overrides the WebP quality (default 76 for photos, 78 for transparent artwork). */
-export type ImageVariant = { file: string; w: number; h?: number; position?: ImagePosition; quality?: number }
+type ImageVariant = { file: string; w: number; h?: number; position?: ImagePosition; quality?: number }
 
 const cover = (file: string, w: number, h: number, position?: ImagePosition): ImageVariant => ({ file, w, h, position })
 /** A photo rendered at full size and at half size, for a two-entry srcset. */
